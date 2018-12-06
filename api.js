@@ -39,6 +39,10 @@ const getDeparturesData = (stationLocation, response) => {
  };
 
  const formatOutput = (trams) => {
+    if(trams.length === 0) {
+        return 'No trams found'
+    }
+
     let output = '', tram;
 
     for(tram in trams) {
