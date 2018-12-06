@@ -38,6 +38,16 @@ const getDeparturesData = (stationLocation, response) => {
         return filtered.slice(0, 4);
  };
 
+ const formatOutput = (trams) => {
+    let output = '';
+
+    for(tram in trams) {
+        output += `${trams[tram].destination} in ${trams[tram].minutes} minutes, `
+    }
+
+    return output
+ };
+
 async function callMetrolinkApi(apiKey) {
     try {
         return await http.get(
@@ -56,4 +66,4 @@ async function callMetrolinkApi(apiKey) {
 
 callMetrolinkApi('6d674edb6dc3405fb72a0d21f9de9680')
     .then(response => getDeparturesData("Market Street", response))
-    .then(result => console.log(result));
+    .then(result => console.log(formatOutput(result)))
