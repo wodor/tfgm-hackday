@@ -39,7 +39,7 @@ const getDeparturesData = (stationLocation, response) => {
  };
 
  const formatOutput = (trams) => {
-    let output = '';
+    let output = '', tram;
 
     for(tram in trams) {
         output += `${trams[tram].destination} in ${trams[tram].minutes} minutes, `
