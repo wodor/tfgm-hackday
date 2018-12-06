@@ -64,6 +64,4 @@ async function callMetrolinkApi(apiKey) {
     }
 }
 
-callMetrolinkApi('6d674edb6dc3405fb72a0d21f9de9680')
-    .then(response => getDeparturesData("Market Street", response))
-    .then(result => console.log(formatOutput(result)))
+module.exports = { callMetrolinkApi, getDeparturesData, formatOutput }
